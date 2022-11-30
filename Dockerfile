@@ -36,11 +36,11 @@ RUN chown $(id -u):$(id -g) /dev/kvm 2>/dev/null || true
 # Download Windows 11 Pro with English International and Virtio
 # RUN wget https://raw.githubusercontent.com/pbatard/Fido/master/Fido.ps1
 # RUN pwsh Fido.ps1 -Win 11 -Ed Pro -Lang English International
-RUN wget http://192.168.0.113:8000/Win11_EnglishInternational_x64v1.iso
+RUN wget https://dl6.p30day.ir/OS/Win11/22H2/22621.819.NI_RELEASE_CLIENTMULTI_X64FRE_EN-US-www.P30Day.ir.iso
 RUN wget https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso
 
 # Rename ISO file and virtio ISO file
-RUN find . -type f -name 'Win11*.iso' -exec sh -c 'x="{}"; mv "$x" "windows11.iso"' \;
+RUN find . -type f -name '22621*.iso' -exec sh -c 'x="{}"; mv "$x" "windows11.iso"' \;
 RUN find . -type f -name 'virtio-win*.iso' -exec sh -c 'x="{}"; mv "$x" "virtio-win.iso"' \;
 
 # Prepare system .img file and ISO for VM
